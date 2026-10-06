@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Get a Quick Quote | Chris Jeans - State Farm Insurance Agent</title>
+<meta name="description" content="Request a renters, auto, home, life or business insurance quote from Chris Jeans - State Farm Insurance Agent in Memphis.">
+<meta name="theme-color" content="#2f4a6e">
+
+<!-- Google tag (gtag.js): replace AW-XXXXXXXXX with your Google Ads ID (appears twice here) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-XXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-XXXXXXXXX');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script>
+/* ================================================================
+   SETUP: edit only this block
+   ================================================================ */
+const CONFIG = {
+  phoneDisplay: "(901) 346-0300",
+  phoneE164: "+19013460300",
+
+  // Google Ads conversion tracking (replace the placeholders)
+  ads: {
+    id: "AW-XXXXXXXXX",
+    leadLabel: "CONVERSION_LABEL",       // quote form submitted
+    callLabel: "PHONE_CALL_LABEL"        // tap on a Call or Text link
+  },
+
+  // Submissions go to Netlify Forms ("quote-request"). Email delivery is set in
+  // Netlify (Forms > Notifications); keep it in sync with this address.
+  notificationEmail: "chris@leanonjeans.com",
+  optionalFields: {
+    email: true,
+    notes: true
+  },
+
+  // Optional: partner QR links like ?ref=oakridge fill in "How'd you hear about us?"
+  partners: {
+    "oakridge": "Oakridge Apartments"
+  }
+};
+</script>
+<style>
+:root{
+  --bg:#f7f5f2; --card:#ffffff; --ink:#1c1c1e; --muted:#5f6166; --line:#e4e1dc;
+  --brand:#c8102e; --brand-ink:#ffffff; --brand-soft:#fcebee; --accent:#2f4a6e; --denim:#2f4a6e; --stitch:#d9a441;
+  --err:#b3261e; --radius:16px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#141416; --card:#1e1e21; --ink:#f2f2f3; --muted:#a6a7ad; --line:#323236;
+    --brand:#ff4d5e; --brand-ink:#1a0306; --brand-soft:#3a1a1f; --accent:#8fb0d9; --denim:#22344f; --stitch:#d9a441; --err:#f2938b;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#141416; --card:#1e1e21; --ink:#f2f2f3; --muted:#a6a7ad; --line:#323236;
+  --brand:#ff4d5e; --brand-ink:#1a0306; --brand-soft:#3a1a1f; --accent:#8fb0d9; --denim:#22344f; --stitch:#d9a441; --err:#f2938b;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font:16px/1.5 Inter,system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased}
+.wrap{max-width:520px;margin:0 auto;padding:0 16px 40px}
+header{display:flex;align-items:center;gap:10px;margin:0 -16px 22px;padding:14px 16px;background:var(--denim);color:#fff;position:relative}
+header::after{content:"";position:absolute;left:10px;right:10px;bottom:6px;border-bottom:1.5px dashed var(--stitch);opacity:.85}
+.mark{width:38px;height:38px;border-radius:10px;background:var(--brand);color:var(--brand-ink);display:grid;place-items:center;font:800 16px Inter,sans-serif;flex:none}
+.agency{font-weight:600;font-size:15px;line-height:1.25}
+.agency small{display:block;color:rgba(255,255,255,.75);font-weight:400;font-size:12px}
+h1{font:800 31px/1.12 Inter,system-ui,sans-serif;margin:0 0 8px;letter-spacing:-.025em}
+h1 em{font-style:normal;color:var(--brand)}
+.lede{color:var(--muted);margin:0 0 16px}
+
+/* Call / Text */
+.contact{display:grid;grid-template-columns:1.55fr 1fr;gap:10px;margin:0 0 8px}
+.contact .btn{min-height:52px;font-size:16px;white-space:nowrap}
+.btn svg{width:20px;height:20px;flex:none;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.or{display:flex;align-items:center;gap:10px;color:var(--muted);font-size:13px;margin:14px 0}
+.or::before,.or::after{content:"";flex:1;border-top:1px solid var(--line)}
+
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px 18px}
+.label{font-weight:600;font-size:14px;margin:0 0 8px;display:block}
+.opt{font-weight:400;color:var(--muted)}
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px}
+.tile{position:relative}
+.tile.wide{grid-column:1/-1}
+.tile input{position:absolute;opacity:0;inset:0}
+.tile span{display:flex;align-items:center;gap:10px;border:1.5px solid var(--line);border-radius:12px;padding:14px 12px;font-weight:500;cursor:pointer;transition:border-color .15s,background .15s}
+.tile svg{width:22px;height:22px;flex:none;stroke:var(--brand);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.tile input:checked+span{border-color:var(--brand);background:var(--brand-soft)}
+.tile input:focus-visible+span{outline:2px solid var(--accent);outline-offset:2px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.row.pz{grid-template-columns:1.6fr 1fr}
+.field{margin-bottom:14px}
+input[type=text],input[type=tel],input[type=email],textarea{width:100%;font:inherit;color:var(--ink);background:var(--bg);border:1.5px solid var(--line);border-radius:10px;padding:12px;min-height:48px}
+textarea{min-height:76px;resize:vertical}
+input:focus,textarea:focus{outline:none;border-color:var(--brand)}
+input[aria-invalid=true]{border-color:var(--err)}
+.seg{display:flex;gap:8px;flex-wrap:wrap}
+.seg label{flex:1;min-width:90px;position:relative}
+.seg input{position:absolute;opacity:0}
+.seg span{display:block;text-align:center;border:1.5px solid var(--line);border-radius:10px;padding:10px 6px;font-size:14px;cursor:pointer}
+.seg input:checked+span{border-color:var(--brand);background:var(--brand-soft);font-weight:600}
+.consent{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--muted);margin:6px 0 16px}
+.consent input{margin-top:3px;width:18px;height:18px;accent-color:var(--brand);flex:none}
+.err{color:var(--err);font-size:13px;margin:-6px 0 12px;display:none}
+.err.on{display:block}
+button,.btn{appearance:none;border:0;width:100%;min-height:52px;border-radius:12px;background:var(--brand);color:var(--brand-ink);font:600 17px Inter,sans-serif;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none}
+button[disabled]{opacity:.6;cursor:wait}
+.btn.ghost{background:transparent;color:var(--brand);border:1.5px solid var(--brand)}
+.done .btn.ghost{margin-top:10px}
+.fine{font-size:12px;color:var(--muted);text-align:center;margin:12px 0 0}
+.fine a{color:inherit}
+.done{display:none;text-align:center;padding:30px 18px}
+.done.on{display:block}
+.check{width:64px;height:64px;border-radius:50%;background:var(--brand-soft);display:grid;place-items:center;margin:0 auto 14px}
+.check svg{width:30px;height:30px;stroke:var(--brand);fill:none;stroke-width:2.5}
+.done h2{font:800 25px Inter,sans-serif;letter-spacing:-.02em;margin:0 0 6px}
+.done p{color:var(--muted);margin:0 0 18px}
+.trust{display:flex;justify-content:space-between;gap:8px;margin:18px 0 0;padding:0;list-style:none;font-size:13px;color:var(--muted)}
+.trust li{flex:1;text-align:center}
+.trust b{display:block;color:var(--ink);font-size:15px}
+
+footer{color:var(--muted);font-size:12px;margin-top:26px;padding-top:18px;border-top:1px solid var(--line);text-align:center;line-height:1.6}
+footer a{color:inherit}
+footer .fname{color:var(--ink);font-weight:600;font-size:13px}
+footer p{margin:0 0 10px}
+.disclosures{text-align:left;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin:12px 0}
+
+/* Sticky mobile call bar */
+.sticky{display:none}
+@media (max-width:767px){
+  .sticky{display:grid;grid-template-columns:1fr 1fr;gap:10px;position:fixed;left:0;right:0;bottom:0;z-index:20;
+    padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:var(--card);border-top:1px solid var(--line);box-shadow:0 -4px 16px rgba(0,0,0,.08)}
+  .sticky .btn{min-height:48px;font-size:16px}
+  body{padding-bottom:calc(72px + env(safe-area-inset-bottom))}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="mark">CJ</div>
+    <div class="agency">Chris Jeans - State Farm Insurance Agent<small>Memphis &amp; the Mid-South</small></div>
+  </header>
+
+  <h1>Lean on Jeans for a <em>quick quote.</em></h1>
+  <p class="lede">Insurance that fits like your favorite pair of jeans. Call or text us now, or send your info and we'll call you, usually within one business day.</p>
+
+  <div class="contact">
+    <a class="btn" href="tel:+19013460300"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>Call (901) 346-0300</a>
+    <a class="btn ghost" href="sms:+19013460300"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Text us</a>
+  </div>
+  <div class="or">or request a quote below</div>
+
+  <div class="card" id="formCard">
+    <form id="f" name="quote-request" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+      <input type="hidden" name="form-name" value="quote-request">
+      <input type="hidden" name="referralPartner" id="referralPartner">
+      <p hidden><label>Leave this empty: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+      <span class="label">What would you like quoted?</span>
+      <div class="tiles">
+        <label class="tile"><input type="checkbox" name="coverage" value="Renters"><span><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"/></svg>Renters</span></label>
+        <label class="tile"><input type="checkbox" name="coverage" value="Auto"><span><svg viewBox="0 0 24 24"><path d="M5 17h14M3 13l2-6h14l2 6v4H3z"/><circle cx="7.5" cy="17" r="1.5"/><circle cx="16.5" cy="17" r="1.5"/></svg>Auto</span></label>
+        <label class="tile"><input type="checkbox" name="coverage" value="Home/Condo"><span><svg viewBox="0 0 24 24"><path d="M3 11l9-7 9 7M5 9.5V20h14V9.5"/></svg>Home / Condo</span></label>
+        <label class="tile"><input type="checkbox" name="coverage" value="Life"><span><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg>Life</span></label>
+        <label class="tile wide"><input type="checkbox" name="coverage" value="Business"><span><svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 13h18"/></svg>Business</span></label>
+      </div>
+
+      <div class="row">
+        <div class="field"><label class="label" for="fn">First name</label><input type="text" id="fn" name="firstName" autocomplete="given-name" required></div>
+        <div class="field"><label class="label" for="ln">Last name <span class="opt">(optional)</span></label><input type="text" id="ln" name="lastName" autocomplete="family-name"></div>
+      </div>
+      <div class="row pz">
+        <div class="field"><label class="label" for="ph">Mobile phone</label><input type="tel" id="ph" name="phone" autocomplete="tel" inputmode="tel" placeholder="(555) 555-5555" required></div>
+        <div class="field"><label class="label" for="zp">ZIP code</label><input type="text" id="zp" name="zip" autocomplete="postal-code" inputmode="numeric" maxlength="10" required></div>
+      </div>
+      <div class="field"><label class="label" for="em">Email <span class="opt">(optional)</span></label><input type="email" id="em" name="email" autocomplete="email"></div>
+
+      <div class="field">
+        <span class="label">Best time to call <span class="opt">(optional)</span></span>
+        <div class="seg">
+          <label><input type="radio" name="bestTime" value="Morning"><span>Morning</span></label>
+          <label><input type="radio" name="bestTime" value="Afternoon"><span>Afternoon</span></label>
+          <label><input type="radio" name="bestTime" value="Evening"><span>Evening</span></label>
+        </div>
+      </div>
+      <div class="field"><label class="label" for="hd">How'd you hear about us? <span class="opt">(optional)</span></label><input type="text" id="hd" name="heardAbout" placeholder="Apartment office, friend, Google…"></div>
+      <div class="field"><label class="label" for="nt">Anything we should know? <span class="opt">(optional)</span></label><textarea id="nt" name="notes" placeholder="Move-in date, current insurer, vehicles…"></textarea></div>
+
+      <label class="consent"><input type="checkbox" id="ok" name="consent" value="Yes"><span>It's OK for Chris Jeans - State Farm Insurance Agent to call or text me about my quote. Consent isn't required to buy.</span></label>
+      <p class="err" id="eForm" role="alert">Please choose at least one product, and enter your first name, a 10-digit mobile number and a 5-digit ZIP code. Then check the box above.</p>
+
+      <button type="submit" id="go">Request my quote</button>
+      <p class="fine">By submitting, you agree to our <a href="privacy/">Privacy Policy</a>.</p>
+      <p class="fine" style="margin-top:4px">No cost and no obligation. We never sell your info.</p>
+    </form>
+  </div>
+
+  <div class="card done" id="done" aria-live="polite">
+    <div class="check"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+    <h2 id="thx">Thanks!</h2>
+    <p>We've got your request. An agent will reach out soon with your quote.</p>
+    <a class="btn" href="tel:+19013460300">Call us now</a>
+    <button type="button" class="btn ghost" id="again">Submit another request</button>
+  </div>
+
+  <ul class="trust">
+    <li><b>~60 sec</b>to request</li>
+    <li><b>1 day</b>typical callback</li>
+    <li><b>$0</b>to get a quote</li>
+  </ul>
+
+  <footer>
+    <p><span class="fname">Chris Jeans - State Farm Insurance Agent</span><br>
+      4593 Elvis Presley Blvd Suite 107, Memphis, TN 38116<br>
+      <a href="tel:+19013460300">(901) 346-0300</a></p>
+    <p>Licenses: TN-3002548460 · MS-11072777 · AR-20737314</p>
+    <div class="disclosures">[STATE FARM REQUIRED DISCLOSURES GO HERE]</div>
+    <p><a href="privacy/">Privacy Policy</a> · <a href="https://www.leanonjeans.com">leanonjeans.com</a></p>
+  </footer>
+</div>
+
+<nav class="sticky" aria-label="Contact">
+  <a class="btn" href="tel:+19013460300"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>Call</a>
+  <a class="btn ghost" href="sms:+19013460300"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Text</a>
+</nav>
+
+<script>
+(function(){
+  const $ = id => document.getElementById(id);
+  const A = CONFIG.ads;
+
+  // ---- Conversion: tap on any tel: or sms: link (one event per tap) ----
+  document.addEventListener("click", e => {
+    const a = e.target.closest && e.target.closest('a[href^="tel:"], a[href^="sms:"]');
+    if (!a || typeof gtag !== "function") return;
+    const kind = a.getAttribute("href").startsWith("sms:") ? "sms" : "tel";
+    gtag("event", "conversion", { send_to: A.id + "/" + A.callLabel });
+    gtag("event", "phone_call_click", { link_type: kind, link_text: a.textContent.trim() });
+  });
+
+  // ---- Conversion: quote form submitted (once per submission) ----
+  let leadSent = false;
+  function trackLead(){
+    if (leadSent || typeof gtag !== "function") return;
+    leadSent = true;
+    gtag("event", "conversion", { send_to: A.id + "/" + A.leadLabel });
+  }
+
+  // Partner QR links (?ref=oakridge) prefill "How'd you hear about us?"
+  const slug = (new URLSearchParams(location.search).get("ref") || "").trim().toLowerCase();
+  let P = slug ? CONFIG.partners[slug] : null;
+  if (P && typeof P === "object") P = P.name;
+  const partner = slug ? (P || slug.replace(/[-_]+/g," ").replace(/\b\w/g, c => c.toUpperCase())) : "";
+  const prefill = () => { $("referralPartner").value = partner; if (partner) $("hd").value = partner; };
+  prefill();
+
+  if (!CONFIG.optionalFields.email) { $("em").closest(".field").style.display = "none"; $("em").disabled = true; }
+  if (!CONFIG.optionalFields.notes) { $("nt").closest(".field").style.display = "none"; $("nt").disabled = true; }
+
+  $("f").addEventListener("submit", async e => {
+    e.preventDefault();
+    const cov = [...document.querySelectorAll('input[name=coverage]:checked')].map(i => i.value);
+    const fn = $("fn").value.trim(), ph = $("ph").value.trim(), zp = $("zp").value.trim();
+    const okPhone = ph.replace(/\D/g, "").replace(/^1(?=\d{10}$)/, "").length === 10;
+    const okZip = /^\d{5}(-?\d{4})?$/.test(zp);
+    $("fn").setAttribute("aria-invalid", !fn);
+    $("ph").setAttribute("aria-invalid", !okPhone);
+    $("zp").setAttribute("aria-invalid", !okZip);
+    const bad = !cov.length || !fn || !okPhone || !okZip || !$("ok").checked;
+    $("eForm").classList.toggle("on", bad);
+    if (bad) return;
+    if (!$("em").disabled && !$("em").validity.valid) { $("em").reportValidity(); return; }
+
+    const body = new URLSearchParams(new FormData($("f")));
+    body.set("coverage", cov.join(", "));
+    for (const [field, value] of body) body.set(field, value.trim());
+
+    const btn = $("go");
+    btn.disabled = true; btn.textContent = "Sending…";
+    try {
+      const response = await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: body.toString()
+      });
+      if (!response.ok) throw new Error("Submission failed");
+      $("thx").textContent = "Thanks, " + fn + "!";
+      $("formCard").style.display = "none";
+      $("done").classList.add("on");
+      trackLead();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } catch (err) {
+      btn.disabled = false; btn.textContent = "Request my quote";
+      $("eForm").textContent = "Couldn't send. Check your connection and try again, or call " + CONFIG.phoneDisplay + ".";
+      $("eForm").classList.add("on");
+    }
+  });
+
+  $("again").addEventListener("click", () => {
+    $("f").reset();
+    prefill();
+    leadSent = false;
+    $("thx").textContent = "Thanks!";
+    const btn = $("go"); btn.disabled = false; btn.textContent = "Request my quote";
+    $("eForm").textContent = "Please choose at least one product, and enter your first name, a 10-digit mobile number and a 5-digit ZIP code. Then check the box above.";
+    $("eForm").classList.remove("on");
+    $("done").classList.remove("on");
+    $("formCard").style.display = "";
+  });
+})();
+</script>
+</body>
+</html>
