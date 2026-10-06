@@ -7,13 +7,13 @@
 <meta name="description" content="Request a renters, auto, home, life or business insurance quote from Chris Jeans - State Farm Insurance Agent in Memphis.">
 <meta name="theme-color" content="#2f4a6e">
 
-<!-- Google tag (gtag.js): replace AW-XXXXXXXXX with your Google Ads ID (appears twice here) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-XXXXXXXXX"></script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CK6XMJN1K5"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'AW-XXXXXXXXX');
+  gtag('config', 'G-CK6XMJN1K5');
 </script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,11 +27,12 @@ const CONFIG = {
   phoneDisplay: "(901) 346-0300",
   phoneE164: "+19013460300",
 
-  // Google Ads conversion tracking (replace the placeholders)
+  // Optional Google Ads conversions. Leave "" to send events to Google Analytics only.
+  // If filled, also add gtag('config', ads.id) to the Google tag in <head>.
   ads: {
-    id: "AW-XXXXXXXXX",
-    leadLabel: "CONVERSION_LABEL",       // quote form submitted
-    callLabel: "PHONE_CALL_LABEL"        // tap on a Call or Text link
+    id: "",            // e.g. "AW-123456789"
+    leadLabel: "",     // quote form submitted
+    callLabel: ""      // tap on a Call or Text link
   },
 
   // Submissions go to Netlify Forms ("quote-request"). Email delivery is set in
@@ -131,7 +132,9 @@ footer{color:var(--muted);font-size:12px;margin-top:26px;padding-top:18px;border
 footer a{color:inherit}
 footer .fname{color:var(--ink);font-weight:600;font-size:13px}
 footer p{margin:0 0 10px}
-.disclosures{text-align:left;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin:12px 0}
+.disclosures{text-align:left;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin:12px 0;font-size:11px;line-height:1.5}
+.disclosures p{margin:0 0 8px}
+.disclosures p:last-child{margin:0}
 
 /* Sticky mobile call bar */
 .sticky{display:none}
@@ -222,7 +225,12 @@ footer p{margin:0 0 10px}
       4593 Elvis Presley Blvd Suite 107, Memphis, TN 38116<br>
       <a href="tel:+19013460300">(901) 346-0300</a></p>
     <p>Licenses: TN-3002548460 · MS-11072777 · AR-20737314</p>
-    <div class="disclosures">[STATE FARM REQUIRED DISCLOSURES GO HERE]</div>
+    <div class="disclosures">
+      <p>State Farm (including State Farm Mutual Automobile Insurance Company and its subsidiaries and affiliates) is not responsible for, and does not endorse or approve, either implicitly or explicitly, the content of any third party sites referenced in this material. Products and services are offered by third parties and State Farm does not warrant the merchantability, fitness or quality of the products and services of the third parties.</p>
+      <p>Prices are based on rating plans that may vary by state. Coverage options are selected by the customer, and availability and eligibility may vary.</p>
+      <p>*Customers may always choose to purchase only one policy, but the discount for two or more purchases of different lines of insurance will not then apply. Savings, discount names, percentages, availability and eligibility may vary by state.</p>
+      <p>Neither State Farm nor its agents provide tax or legal advice. Please consult a tax or legal advisor for advice regarding your personal circumstances.</p>
+    </div>
     <p><a href="privacy/">Privacy Policy</a> · <a href="https://www.leanonjeans.com">leanonjeans.com</a></p>
   </footer>
 </div>
@@ -242,8 +250,8 @@ footer p{margin:0 0 10px}
     const a = e.target.closest && e.target.closest('a[href^="tel:"], a[href^="sms:"]');
     if (!a || typeof gtag !== "function") return;
     const kind = a.getAttribute("href").startsWith("sms:") ? "sms" : "tel";
-    gtag("event", "conversion", { send_to: A.id + "/" + A.callLabel });
     gtag("event", "phone_call_click", { link_type: kind, link_text: a.textContent.trim() });
+    if (A.id && A.callLabel) gtag("event", "conversion", { send_to: A.id + "/" + A.callLabel });
   });
 
   // ---- Conversion: quote form submitted (once per submission) ----
@@ -251,7 +259,8 @@ footer p{margin:0 0 10px}
   function trackLead(){
     if (leadSent || typeof gtag !== "function") return;
     leadSent = true;
-    gtag("event", "conversion", { send_to: A.id + "/" + A.leadLabel });
+    gtag("event", "generate_lead", { form_name: "quote_request", products: [...document.querySelectorAll('input[name=coverage]:checked')].map(i => i.value).join(", ") });
+    if (A.id && A.leadLabel) gtag("event", "conversion", { send_to: A.id + "/" + A.leadLabel });
   }
 
   // Partner QR links (?ref=oakridge) prefill "How'd you hear about us?"
