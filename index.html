@@ -21,7 +21,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <script>
 /* ================================================================
-   SETUP: edit only this block
+   SETUP
    ================================================================ */
 const CONFIG = {
   phoneDisplay: "(901) 346-0300",
@@ -35,12 +35,19 @@ const CONFIG = {
     callLabel: ""      // tap on a Call or Text link
   },
 
-  // Submissions go to Netlify Forms ("quote-request"). Email delivery is set in
-  // Netlify (Forms > Notifications); keep it in sync with this address.
-  notificationEmail: "chris@leanonjeans.com",
-  optionalFields: {
-    email: true,
-    notes: true
+  // Google Form
+  formId: "1FAIpQLSddHOhtl6kzCYcDs3ShvarTGKoU4jcH8ZkCmtNf-A8soR57sQ",
+  fields: {
+    firstName: "entry.1578142807",
+    lastName:  "entry.830425971",
+    phone:     "entry.1463083880",
+    email:     "entry.236155932",
+    street:    "entry.646646333",
+    zip:       "entry.980823821",   // "City and Zip" question
+    coverage:  "entry.2055861459",
+    bestTime:  "entry.1990544326",
+    heardAbout:"entry.1410723063",
+    notes:     "entry.385037968"
   },
 
   // Optional: partner QR links like ?ref=oakridge fill in "How'd you hear about us?"
@@ -163,10 +170,7 @@ footer p{margin:0 0 10px}
   <div class="or">or request a quote below</div>
 
   <div class="card" id="formCard">
-    <form id="f" name="quote-request" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
-      <input type="hidden" name="form-name" value="quote-request">
-      <input type="hidden" name="referralPartner" id="referralPartner">
-      <p hidden><label>Leave this empty: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+    <form id="f" novalidate>
       <span class="label">What would you like quoted?</span>
       <div class="tiles">
         <label class="tile"><input type="checkbox" name="coverage" value="Renters"><span><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"/></svg>Renters</span></label>
@@ -177,27 +181,27 @@ footer p{margin:0 0 10px}
       </div>
 
       <div class="row">
-        <div class="field"><label class="label" for="fn">First name</label><input type="text" id="fn" name="firstName" autocomplete="given-name" required></div>
-        <div class="field"><label class="label" for="ln">Last name <span class="opt">(optional)</span></label><input type="text" id="ln" name="lastName" autocomplete="family-name"></div>
+        <div class="field"><label class="label" for="fn">First name</label><input type="text" id="fn" autocomplete="given-name" required></div>
+        <div class="field"><label class="label" for="ln">Last name <span class="opt">(optional)</span></label><input type="text" id="ln" autocomplete="family-name"></div>
       </div>
       <div class="row pz">
-        <div class="field"><label class="label" for="ph">Mobile phone</label><input type="tel" id="ph" name="phone" autocomplete="tel" inputmode="tel" placeholder="(555) 555-5555" required></div>
-        <div class="field"><label class="label" for="zp">ZIP code</label><input type="text" id="zp" name="zip" autocomplete="postal-code" inputmode="numeric" maxlength="10" required></div>
+        <div class="field"><label class="label" for="ph">Mobile phone</label><input type="tel" id="ph" autocomplete="tel" inputmode="tel" placeholder="(555) 555-5555" required></div>
+        <div class="field"><label class="label" for="zp">ZIP code</label><input type="text" id="zp" autocomplete="postal-code" inputmode="numeric" maxlength="10" required></div>
       </div>
-      <div class="field"><label class="label" for="em">Email <span class="opt">(optional)</span></label><input type="email" id="em" name="email" autocomplete="email"></div>
+      <div class="field"><label class="label" for="em">Email <span class="opt">(optional)</span></label><input type="email" id="em" autocomplete="email"></div>
 
       <div class="field">
         <span class="label">Best time to call <span class="opt">(optional)</span></span>
         <div class="seg">
-          <label><input type="radio" name="bestTime" value="Morning"><span>Morning</span></label>
-          <label><input type="radio" name="bestTime" value="Afternoon"><span>Afternoon</span></label>
-          <label><input type="radio" name="bestTime" value="Evening"><span>Evening</span></label>
+          <label><input type="radio" name="time" value="Morning"><span>Morning</span></label>
+          <label><input type="radio" name="time" value="Afternoon"><span>Afternoon</span></label>
+          <label><input type="radio" name="time" value="Evening"><span>Evening</span></label>
         </div>
       </div>
-      <div class="field"><label class="label" for="hd">How'd you hear about us? <span class="opt">(optional)</span></label><input type="text" id="hd" name="heardAbout" placeholder="Apartment office, friend, Google…"></div>
-      <div class="field"><label class="label" for="nt">Anything we should know? <span class="opt">(optional)</span></label><textarea id="nt" name="notes" placeholder="Move-in date, current insurer, vehicles…"></textarea></div>
+      <div class="field"><label class="label" for="hd">How'd you hear about us? <span class="opt">(optional)</span></label><input type="text" id="hd" placeholder="Apartment office, friend, Google…"></div>
+      <div class="field"><label class="label" for="nt">Anything we should know? <span class="opt">(optional)</span></label><textarea id="nt" placeholder="Move-in date, current insurer, vehicles…"></textarea></div>
 
-      <label class="consent"><input type="checkbox" id="ok" name="consent" value="Yes"><span>It's OK for Chris Jeans - State Farm Insurance Agent to call or text me about my quote. Consent isn't required to buy.</span></label>
+      <label class="consent"><input type="checkbox" id="ok"><span>It's OK for Chris Jeans - State Farm Insurance Agent to call or text me about my quote. Consent isn't required to buy.</span></label>
       <p class="err" id="eForm" role="alert">Please choose at least one product, and enter your first name, a 10-digit mobile number and a 5-digit ZIP code. Then check the box above.</p>
 
       <button type="submit" id="go">Request my quote</button>
@@ -265,14 +269,9 @@ footer p{margin:0 0 10px}
 
   // Partner QR links (?ref=oakridge) prefill "How'd you hear about us?"
   const slug = (new URLSearchParams(location.search).get("ref") || "").trim().toLowerCase();
-  let P = slug ? CONFIG.partners[slug] : null;
-  if (P && typeof P === "object") P = P.name;
-  const partner = slug ? (P || slug.replace(/[-_]+/g," ").replace(/\b\w/g, c => c.toUpperCase())) : "";
-  const prefill = () => { $("referralPartner").value = partner; if (partner) $("hd").value = partner; };
+  const partner = slug ? (CONFIG.partners[slug] || slug.replace(/[-_]+/g," ").replace(/\b\w/g, c => c.toUpperCase())) : "";
+  const prefill = () => { if (partner) $("hd").value = partner; };
   prefill();
-
-  if (!CONFIG.optionalFields.email) { $("em").closest(".field").style.display = "none"; $("em").disabled = true; }
-  if (!CONFIG.optionalFields.notes) { $("nt").closest(".field").style.display = "none"; $("nt").disabled = true; }
 
   $("f").addEventListener("submit", async e => {
     e.preventDefault();
@@ -286,21 +285,28 @@ footer p{margin:0 0 10px}
     const bad = !cov.length || !fn || !okPhone || !okZip || !$("ok").checked;
     $("eForm").classList.toggle("on", bad);
     if (bad) return;
-    if (!$("em").disabled && !$("em").validity.valid) { $("em").reportValidity(); return; }
 
-    const body = new URLSearchParams(new FormData($("f")));
-    body.set("coverage", cov.join(", "));
-    for (const [field, value] of body) body.set(field, value.trim());
+    const time = (document.querySelector('input[name=time]:checked') || {}).value || "";
+    const F = CONFIG.fields, body = new URLSearchParams();
+    // Fallbacks keep Google from rejecting the response while those
+    // questions are still marked "required" in the Google Form.
+    body.append(F.firstName, fn);
+    body.append(F.lastName, $("ln").value.trim() || "(not given)");
+    body.append(F.phone, ph);
+    body.append(F.zip, zp);
+    body.append(F.street, "Collect on callback");
+    cov.forEach(c => body.append(F.coverage, c));
+    if (time) body.append(F.bestTime, time);
+    else { body.append(F.bestTime, "__other_option__"); body.append(F.bestTime + ".other_option_response", "Anytime"); }
+    body.append(F.heardAbout, $("hd").value.trim() || "(not given)");
+    const em = $("em").value.trim(); if (em) body.append(F.email, em);
+    const nt = $("nt").value.trim(); if (nt) body.append(F.notes, nt);
 
     const btn = $("go");
     btn.disabled = true; btn.textContent = "Sending…";
     try {
-      const response = await fetch("/", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: body.toString()
-      });
-      if (!response.ok) throw new Error("Submission failed");
+      await fetch("https://docs.google.com/forms/d/e/" + CONFIG.formId + "/formResponse",
+        { method: "POST", mode: "no-cors", body });
       $("thx").textContent = "Thanks, " + fn + "!";
       $("formCard").style.display = "none";
       $("done").classList.add("on");
